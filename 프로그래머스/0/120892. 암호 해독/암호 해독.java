@@ -1,9 +1,13 @@
 class Solution {
     public String solution(String cipher, int code) {
-        String answer = "";
-        for(int i=code; i<=cipher.length(); i+=code){
-                answer += cipher.substring(i-1, i);
+        int p = code;
+        StringBuilder sb = new StringBuilder();
+
+        while (p <= cipher.length()) {
+            sb.append(cipher.charAt(p - 1));
+            p += code;
         }
-        return answer;
+
+        return sb.toString();
     }
 }
