@@ -16,12 +16,20 @@
 
 
 
+// class Solution {
+//     public int[] solution(int[] arr, int n) {
+//         for(int idx=arr.length%2==0?1:0; idx<arr.length; idx+=2) {
+//             arr[idx]+=n;
+//         }
+
+//         return arr;
+//     }
+// }
+
+import java.util.stream.IntStream;
+
 class Solution {
     public int[] solution(int[] arr, int n) {
-        for(int idx=arr.length%2==0?1:0; idx<arr.length; idx+=2) {
-            arr[idx]+=n;
-        }
-
-        return arr;
+        return IntStream.range(0, arr.length).map(i -> arr[i] + (i % 2 == (arr.length % 2 == 0 ? 1 : 0) ? n : 0)).toArray();
     }
 }
