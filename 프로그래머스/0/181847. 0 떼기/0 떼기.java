@@ -12,8 +12,15 @@
 //     }
 // }
 
+// class Solution {
+//     public String solution(String n_str) {
+//         return ""+Integer.parseInt(n_str);
+//     }
+// }
+
+
 class Solution {
-    public String solution(String n_str) {
-        return ""+Integer.parseInt(n_str);
+    public String solution(String nStr) {
+        return String.valueOf(Integer.parseInt(nStr));
     }
 }
