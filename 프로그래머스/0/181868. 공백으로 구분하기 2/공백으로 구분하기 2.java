@@ -15,8 +15,15 @@
 //     }
 // }
 
+// class Solution {
+//     public String[] solution(String my_string) {
+//         return my_string.trim().split("[ ]+");
+//     }
+// }
+
+
 class Solution {
-    public String[] solution(String my_string) {
-        return my_string.trim().split("[ ]+");
+    public String[] solution(String myString) {
+        return myString.trim().split("\\s+");
     }
 }
