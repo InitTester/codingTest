@@ -12,10 +12,49 @@
 //     }
 // }
 
-import java.util.stream.IntStream;
+// import java.util.stream.IntStream;
+
+// class Solution {
+//     public int[] solution(int[] arr, int[] delete_list) {
+//         return IntStream.of(arr).filter(i -> !IntStream.of(delete_list).anyMatch(s -> s == i)).toArray();
+//     }
+// }
+
+
+// import java.util.Arrays;
+// import java.util.HashSet;
+
+// class Solution {
+//     public int[] solution(int[] arr, int[] delete_list) {
+//         HashSet<Integer> delete = new HashSet<>();
+//         for (int del : delete_list)
+//             delete.add(del);
+//         return Arrays.stream(arr).filter(i -> !delete.contains(i)).toArray();
+//     }
+// }
+
+
+
+import java.util.*;
 
 class Solution {
     public int[] solution(int[] arr, int[] delete_list) {
-        return IntStream.of(arr).filter(i -> !IntStream.of(delete_list).anyMatch(s -> s == i)).toArray();
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        for (int a : arr) 
+            if (!isExist(delete_list, a))
+                arrayList.add(a);
+
+        int idx = 0;
+        int[] answer = new int[arrayList.size()];
+        for (int data : arrayList)
+            answer[idx++] = data;
+        return answer;
+    }
+
+    public boolean isExist(int[] arr, int data) {
+        for (int a : arr)
+            if (a == data)
+                return true;
+        return false;
     }
 }
