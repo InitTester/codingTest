@@ -10,11 +10,25 @@
 //     }
 // }
 
-import java.util.*;
-import java.util.stream.Collectors;
+// import java.util.*;
+// import java.util.stream.Collectors;
+
+// class Solution {
+//     public String solution(String[] strList, String ex) {
+//         return Arrays.stream(strList).filter(s -> !s.contains(ex)).collect(Collectors.joining());
+//     }
+// }
+
+
 
 class Solution {
-    public String solution(String[] strList, String ex) {
-        return Arrays.stream(strList).filter(s -> !s.contains(ex)).collect(Collectors.joining());
+    public String solution(String[] str_list, String ex) {
+        StringBuilder sb = new StringBuilder();
+
+        for (String s : str_list) {
+            sb.append(s.contains(ex) ? "" : s);
+        }
+
+        return sb.toString();
     }
 }
