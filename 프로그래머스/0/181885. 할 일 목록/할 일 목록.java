@@ -30,15 +30,40 @@
 
 
 
+// import java.util.*;
+// import java.util.stream.IntStream;
+
+// class Solution {
+//     public String[] solution(String[] todoList, boolean[] finished) {
+//         return IntStream.range(0, todoList.length)
+//             .mapToObj(i -> new AbstractMap.SimpleEntry<>(todoList[i], !finished[i]))
+//             .filter(AbstractMap.SimpleEntry::getValue)
+//             .map(AbstractMap.SimpleEntry::getKey)
+//             .toArray(String[]::new);
+//     }
+// }
+
+
+
+
 import java.util.*;
-import java.util.stream.IntStream;
 
 class Solution {
-    public String[] solution(String[] todoList, boolean[] finished) {
-        return IntStream.range(0, todoList.length)
-            .mapToObj(i -> new AbstractMap.SimpleEntry<>(todoList[i], !finished[i]))
-            .filter(AbstractMap.SimpleEntry::getValue)
-            .map(AbstractMap.SimpleEntry::getKey)
-            .toArray(String[]::new);
+    public String[] solution(String[] todo_list, boolean[] finished) {
+
+        ArrayList <String> al = new ArrayList <> ();
+
+        for(int i = 0; i < finished.length; i ++){
+            if(!finished[i]){
+                al.add(todo_list[i]);
+            }
+        }
+
+        String[] answer = new String [al.size()];
+        for(int i = 0; i < al.size(); i ++){
+            answer[i] = al.get(i);
+        }
+
+        return answer;
     }
 }
