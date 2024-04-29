@@ -22,29 +22,18 @@
 // }
 
 
+
+
 import java.util.*;
 
 class Solution {
     public String[] solution(String myString) {
-        String[] answer = {};
-        String[] split = myString.split("x");
-        ArrayList <String> al = new ArrayList <> ();
-
-        for(int i = 0; i < split.length; i ++){
-            if(!split[i].equals("")){
-                al.add(split[i]);
-            }
-
-        }
-        //System.out.println(al);
-
-        answer = new String [al.size()];
-        for(int i = 0; i < al.size(); i ++){
-            answer[i] = al.get(i);
-        }
-        Arrays.sort(answer);
-
-
-        return answer;
+        StringTokenizer st = new StringTokenizer(myString, "x");
+        int idx = 0, N = st.countTokens();
+        String[] result = new String[N];
+        for (int n = 0;n < N;n++)
+            result[idx++] = st.nextToken();
+        Arrays.sort(result);
+        return result;
     }
 }
