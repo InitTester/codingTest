@@ -1,13 +1,21 @@
+// class Solution {
+//     public String solution(String my_string, int s, int e) {
+//         char[] chars = my_string.toCharArray();
+        
+//         for(int i=s; i<e; i++,e--){
+//             char tmp = chars[i];
+//             chars[i] = chars[e];
+//             chars[e] = tmp;
+//         }
+        
+//         return new String(chars);
+//     }
+// }
+
 class Solution {
     public String solution(String my_string, int s, int e) {
-        char[] chars = my_string.toCharArray();
-        
-        for(int i=s; i<e; i++,e--){
-            char tmp = chars[i];
-            chars[i] = chars[e];
-            chars[e] = tmp;
-        }
-        
-        return new String(chars);
+        StringBuilder answer = new StringBuilder(my_string.substring(s, e + 1));
+        answer.reverse();
+        return my_string.substring(0, s) + answer + my_string.substring(e + 1);
     }
 }
