@@ -11,8 +11,7 @@ class Solution {
         list[num2] = cnum1;
         list[num1] = cnum2;
         
-        for(char c : list) answer += c;
-        
-        return answer;
+        return String.valueOf(list);
     }
 }
+
