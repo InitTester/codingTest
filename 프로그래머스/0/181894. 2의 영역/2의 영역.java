@@ -29,12 +29,43 @@
 //     }
 // }
 
-import java.util.stream.IntStream;
+// import java.util.stream.IntStream;
 
+// class Solution {
+//     public int[] solution(int[] arr) {
+//         int[] idx = IntStream.range(0, arr.length).filter(i -> arr[i] == 2).toArray();
+//         if (idx.length == 0) return new int[]{-1};
+//         return IntStream.rangeClosed(idx[0], idx[idx.length - 1]).map(i -> arr[i]).toArray();
+//     }
+// }
+
+
+
+import java.util.*;
 class Solution {
     public int[] solution(int[] arr) {
-        int[] idx = IntStream.range(0, arr.length).filter(i -> arr[i] == 2).toArray();
-        if (idx.length == 0) return new int[]{-1};
-        return IntStream.rangeClosed(idx[0], idx[idx.length - 1]).map(i -> arr[i]).toArray();
+        int[] answer = {};
+        int start = -1;
+        int end = -1;
+
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==2){
+                if(start==-1){
+                    start = i;
+                }
+                end = i;
+            }
+        }
+
+        if(start==-1){
+            answer = new int[]{-1};
+        }else{
+
+            answer = Arrays.copyOfRange(arr,start,end+1);
+        }
+
+
+
+        return answer;
     }
 }
