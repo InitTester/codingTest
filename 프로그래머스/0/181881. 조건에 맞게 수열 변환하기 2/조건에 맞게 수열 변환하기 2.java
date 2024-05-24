@@ -34,31 +34,54 @@
 //     }
 // }
 
-import java.util.Arrays;
+// import java.util.Arrays;
+
+// class Solution {
+//     public int solution(int[] arr) {
+//         return Arrays.stream(arr).map(i -> cntAction(i)).max().getAsInt();
+//     }
+
+//     private int cntAction(int n) {
+
+//         int cnt = 0;
+//         boolean flag = true;
+
+//         while (flag) {
+
+//             if (n % 2 == 0 && 50 <= n) {
+//                 n /= 2;
+//                 cnt++;
+//             } else if (n % 2 == 1 && n < 50) {
+//                 n *= 2;
+//                 n += 1;
+//                 cnt++;
+//             } else {
+//                 flag = false;
+//             }
+//         }
+//         return cnt;
+//     }
+// }
+
+import java.util.*;
 
 class Solution {
     public int solution(int[] arr) {
-        return Arrays.stream(arr).map(i -> cntAction(i)).max().getAsInt();
-    }
-
-    private int cntAction(int n) {
-
-        int cnt = 0;
-        boolean flag = true;
-
-        while (flag) {
-
-            if (n % 2 == 0 && 50 <= n) {
-                n /= 2;
-                cnt++;
-            } else if (n % 2 == 1 && n < 50) {
-                n *= 2;
-                n += 1;
-                cnt++;
-            } else {
-                flag = false;
+        int count = 0;
+        while (true) {
+            int[] copied = Arrays.copyOf(arr, arr.length);
+            for (int i = 0 ; i < copied.length ; i++) {
+                if (copied[i] >= 50 && copied[i] % 2 == 0) {
+                    copied[i] /= 2;
+                } else if (copied[i] < 50 && copied[i] % 2 == 1) {
+                    copied[i] = copied[i] * 2 + 1;
+                }
             }
+            if (Arrays.equals(arr, copied)) {
+                return count;
+            }
+            arr = copied;
+            count++;
         }
-        return cnt;
     }
 }
