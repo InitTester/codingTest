@@ -27,7 +27,7 @@ class Solution {
     public int solution(String[] strArr) {
         int answer = 0;
 
-        int[] lengArr = new int[31];
+        int[] lengArr = new int[31]; // 원소의 길이가 <=30
 
         for(int i=0; i<strArr.length; i++) {
             lengArr[strArr[i].length()]++;
