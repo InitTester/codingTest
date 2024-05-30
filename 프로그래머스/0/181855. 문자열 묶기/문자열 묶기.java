@@ -23,34 +23,20 @@
 // }
 
 
-
-import java.util.*;
-
 class Solution {
     public int solution(String[] strArr) {
         int answer = 0;
-        HashMap <Integer, Integer> map = new HashMap <> ();
 
-        for(int i = 0; i < strArr.length; i ++){
-            int key = strArr[i].length();
+        int[] lengArr = new int[31];
 
-            if(!map.containsKey(key)){
-                map.put(key, 1);
-            }
-            else{
-                map.put(key, map.get(key) + 1);
-            }
+        for(int i=0; i<strArr.length; i++) {
+            lengArr[strArr[i].length()]++;
         }
 
-        //System.out.println(map);
-        int max = 0;
-        for(Map.Entry <Integer, Integer> entry : map.entrySet()){
-            if(entry.getValue() > max){
-                max = entry.getValue();
-            }
+        for(int i=0; i<=30; i++) {
+            answer = Math.max(answer, lengArr[i]);
         }
-        //System.out.println(max);
 
-        return max;
+        return answer;
     }
 }
