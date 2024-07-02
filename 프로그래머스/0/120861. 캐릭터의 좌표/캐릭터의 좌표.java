@@ -10,25 +10,25 @@ class Solution {
         list.put("up",new int[]{0,1});
         list.put("down",new int[]{0,-1});
 
-        int maxX = board[0]/2;
-        int maxY = board[1]/2;
-        
         for(String key : keyinput){
             for(Map.Entry<String,int[]> list_value : list.entrySet()){
                 if(key.equals(list_value.getKey())){
-                    
-                    answer[0] = answer[0] + list_value.getValue()[0];
-                    answer[1] = answer[1] + list_value.getValue()[1];
-                    
-                  if(maxX < Math.abs(answer[0])){
-                        answer[0] = (answer[0] < 0 ?  -1 : 1) * maxX;
-                    }
-
-                    if(maxY < Math.abs(answer[1])){
-                        answer[1] = (answer[1] < 0 ?  -1 : 1) * maxY;
-                    }
+                    answer[0] += list_value.getValue()[0];
+                    answer[1] += list_value.getValue()[1];
                 }
             }
+        }
+        
+        if(board[0] <= answer[0]){
+            answer[0] = board[0];
+        }else if(board[0]/2 <= Math.abs(answer[0])){
+            answer[0] = (answer[0]<0? -1 : 1) * (board[0]/2);
+        }
+
+        if(board[1] <= answer[1]){
+            answer[1] = board[1];
+        }else if(board[1]/2 <= Math.abs(answer[1])){
+            answer[1] = (answer[1]<0? -1 : 1) * (board[1]/2);
         }
         
         return answer;
